@@ -19,24 +19,25 @@ function Generator() {
 
   function shuffle(word) {
     let arr = word.split("");
-    let n = arr.length;
+    let newArr = arr.filter((char) => char !== " ");
+    let n = newArr.length;
 
     for (let i = 0; i < n - 1; ++i) {
       let j = getRandomInt(n);
 
-      let temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
+      let temp = newArr[i];
+      newArr[i] = newArr[j];
+      newArr[j] = temp;
     }
 
-    word = arr.join("");
+    word = newArr.join("");
     return word;
   }
 
   const generatePassword = () => {
     const movieLetters = shuffle(movie);
     const songLetters = shuffle(song);
-    const randomNumber = Math.floor(Math.random() * number);
+    const randomNumber = Math.floor(number * (Math.random() * number));
     setPassword(movieLetters + "!" + songLetters + "%" + randomNumber);
   };
 
