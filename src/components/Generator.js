@@ -18,19 +18,19 @@ function Generator() {
   }
 
   function shuffle(word) {
-    let arr = word.split(""); // Convert String to array
-    let n = arr.length; // Length of the array
+    let arr = word.split("");
+    let n = arr.length;
 
     for (let i = 0; i < n - 1; ++i) {
-      let j = getRandomInt(n); // Get random of [0, n-1]
+      let j = getRandomInt(n);
 
-      let temp = arr[i]; // Swap arr[i] and arr[j]
+      let temp = arr[i];
       arr[i] = arr[j];
       arr[j] = temp;
     }
 
-    word = arr.join(""); // Convert Array to string
-    return word; // Return shuffled string
+    word = arr.join("");
+    return word;
   }
 
   const generatePassword = () => {
@@ -38,21 +38,6 @@ function Generator() {
     const songLetters = shuffle(song);
     const randomNumber = Math.floor(Math.random() * number);
     setPassword(movieLetters + "!" + songLetters + "%" + randomNumber);
-  };
-
-  const handleMovieChange = (event) => {
-    setMovie(event.target.value);
-    console.log(movie);
-  };
-
-  const handleSongChange = (event) => {
-    setSong(event.target.value);
-    console.log(song);
-  };
-
-  const handleNumberChange = (event) => {
-    setNumber(event.target.value);
-    console.log(number);
   };
 
   return (
@@ -69,19 +54,19 @@ function Generator() {
             id="outlined-basic"
             label="Favorite movie?"
             variant="outlined"
-            onChange={handleMovieChange}
+            onChange={(e) => setMovie(e.target.value)}
           />
           <TextField
             id="outlined-basic"
             label="Favorite song?"
             variant="outlined"
-            onChange={handleSongChange}
+            onChange={(e) => setSong(e.target.value)}
           />
           <TextField
             id="outlined-basic"
             label="Favorite number?"
             variant="outlined"
-            onChange={handleNumberChange}
+            onChange={(e) => setNumber(e.target.value)}
           />
           <Typography
             variant="h4"
