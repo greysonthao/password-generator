@@ -5,8 +5,10 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 function Generator() {
+  const matches = useMediaQuery("(min-width:480px)");
   const [password, setPassword] = React.useState("NEW PASSWORD");
   const [movie, setMovie] = React.useState("");
   const [song, setSong] = React.useState("");
@@ -46,11 +48,11 @@ function Generator() {
       <Card
         elevation={20}
         sx={{
-          padding: "5rem 10rem 5rem 10rem",
+          padding: "2rem 4rem 2rem 4rem",
           background: "rgba(255, 255, 255, 0.25)",
         }}
       >
-        <Stack spacing={2} padding="0 5rem 0 5rem">
+        <Stack spacing={2} padding="0 1rem 0 1rem">
           <TextField
             id="outlined-basic"
             label="Favorite movie?"
@@ -69,11 +71,7 @@ function Generator() {
             variant="outlined"
             onChange={(e) => setNumber(e.target.value)}
           />
-          <Typography
-            variant="h4"
-            color="white"
-            sx={{ margin: "2re 2rem 2re 2rem" }}
-          >
+          <Typography variant="h4" color="white" sx={{ margin: "1rem" }}>
             {password}
           </Typography>
 
@@ -83,7 +81,7 @@ function Generator() {
             sx={{
               backgroundColor: "#4457CF",
               fontWeight: "bold",
-              marginTop: "2rem",
+              margin: "2rem",
             }}
           >
             Generate
